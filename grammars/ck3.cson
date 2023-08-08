@@ -1,12 +1,19 @@
-'scopeName': 'source.perl'
-'name': 'Perl'
+'scopeName': 'source.ck3'
+'name': 'CK3'
 'fileTypes': [
-  'pl'
-  'PL'
-  'pm'
-  'pod'
-  'psgi'
-  't'
+  'txt'
+  'gui'
+    'yml'
+    'gui'
+    'old'
+    'bak'
+    'asset'
+    'txt'
+    'gfx'
+    'log'
+    'info'
+    'font'
+    'shortcuts'
 ]
 'firstLineMatch': '''(?x)
   # Hashbang
@@ -784,11 +791,11 @@
     'include': '#separators'
   }
   {
-    'match': '(?<!->)\\b(continue|default|die|do|else|elsif|exit|for|foreach|given|goto|if|last|next|redo|return|select|unless|until|wait|when|while|switch|case|require|use|eval)\\b'
+    'match': '(?<!->)\\b(if|else|else_if|vbox|hbox|widget|icon|window|container|flowcontainer|scrollbox|item|fixedgridbox|dynamicgridbox)\\b'
     'name': 'keyword.control.perl'
   }
   {
-    'match': '\\b(my|our|local|state)\\b'
+    'match': '\\b(text|onclick|raw_text|visible)\\b'
     'name': 'storage.modifier.perl'
   }
   {
@@ -1419,24 +1426,40 @@
       }
     ]
   }
+  # {
+  #   'begin': '"'
+  #   'beginCaptures':
+  #     '0':
+  #       'name': 'punctuation.definition.string.begin.perl'
+  #   'end': '"'
+  #   'endCaptures':
+  #     '0':
+  #       'name': 'punctuation.definition.string.end.perl'
+  #   'name': 'string.quoted.double.perl'
+  #   'patterns': [
+  #     {
+  #       'include': '#escaped_char'
+  #     }
+  #     {
+  #       'include': '#variable'
+  #     }
+  #   ]
+  # }
+  # {
+  #     'match': '"([a-zA-Z]|_)+"'
+  #     'name': 'string.quoted.double.perl'
+  # }
   {
-    'begin': '"'
-    'beginCaptures':
-      '0':
-        'name': 'punctuation.definition.string.begin.perl'
-    'end': '"'
-    'endCaptures':
-      '0':
-        'name': 'punctuation.definition.string.end.perl'
-    'name': 'string.quoted.double.perl'
-    'patterns': [
-      {
-        'include': '#escaped_char'
-      }
-      {
-        'include': '#variable'
-      }
-    ]
+      # 'match': '"[^\\[].+"'
+      # 'match': '[^\\s]\\w(\\w|_|-)+\\w'
+      'match': ".+ ="
+      'name': 'string.quoted.double.perl'
+  }
+  {
+      # 'match': '"[^\\[].+"'
+      # 'match': '[^\\s]\\w(\\w|_|-)+\\w'
+      'match': "\\w+"
+      'name': 'string.interpolated.perl'
   }
   {
     'begin': '(?<!->)\\bqw?\\s*([^\\(\\{\\[\\<\\w\\s])'

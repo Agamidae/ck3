@@ -1,0 +1,4 @@
+'.source.ck3':
+  '#!/usr/bin/env perl':
+    'prefix': 'pl'
+    'body': '#!/usr/bin/env perl\n'
