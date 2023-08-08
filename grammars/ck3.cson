@@ -791,11 +791,11 @@
     'include': '#separators'
   }
   {
-    'match': '(?<!->)\\b(if|else|else_if|vbox|hbox|widget|icon|window|container|flowcontainer|scrollbox|item|fixedgridbox|dynamicgridbox)\\b'
+    'match': '\\b(if|else|else_if|vbox|hbox|widget|icon|window|button|button_.+|widget_.+|container|flowcontainer|scrollbox|item|fixedgridbox|dynamicgridbox|button_text|text_.+|vbox_.+|hbox_.+|type|template)\\b'
     'name': 'keyword.control.perl'
   }
   {
-    'match': '\\b(text|onclick|raw_text|visible)\\b'
+    'match': '\\b(text|onclick|raw_text|visible|And|Or|Not)\\b'
     'name': 'storage.modifier.perl'
   }
   {
@@ -1453,7 +1453,13 @@
       # 'match': '"[^\\[].+"'
       # 'match': '[^\\s]\\w(\\w|_|-)+\\w'
       'match': ".+ ="
-      'name': 'string.quoted.double.perl'
+      'name': 'support.function.perl'
+  }
+  {
+      # 'match': '"[^\\[].+"'
+      # 'match': '[^\\s]\\w(\\w|_|-)+\\w'
+      'match': "^.+: "
+      'name': 'support.function.perl'
   }
   {
       # 'match': '"[^\\[].+"'
@@ -1889,7 +1895,7 @@
         'end': '(?!\\G)'
         'patterns': [
           {
-            'begin': '#'
+            'begin': '(?<!")#'
             'beginCaptures':
               '0':
                 'name': 'punctuation.definition.comment.perl'
