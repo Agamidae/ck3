@@ -1,7 +1,7 @@
 '.source.ck3':
   'editor':
     'foldEndPattern': '(\\*/|^\\s*(\\}|\\]|\\)))'
-    'increaseIndentPattern': '^.*\\{\\}?\\s*$'
+    'increaseIndentPattern': '^.*\\{\\s*$'
     'decreaseIndentPattern': '^\\s*\\}'
     'commentStart': '# '
-    'nonWordCharacters': '/\\()"\':,.;<>~!#^&*|+=[]{}`?-_'
+    'nonWordCharacters': '/\\()"\':,.;<>~!#^&*|+=[]{}`?-'
